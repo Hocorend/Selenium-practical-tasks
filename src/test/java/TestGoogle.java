@@ -1,8 +1,9 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Test {
-    public void test() throws InterruptedException {
+public class TestGoogle {
+
+    public void testGoogle() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://google.com");

@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa284cc5-af39-47b7-b1eb-00f303d03974" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestGoogle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/WebDriverSeleniumHQTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/WebDriverSeleniumHQTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +50,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.WebDriverSeleniumHQTest">
+  <component name="RunManager" selected="TestNG.WebDriverSeleniumHQTest.commonSearchTermResultNotEmpty">
     <configuration name="GoogleTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GoogleTest" />
       <module name="Selenium-practical-tasks" />
@@ -78,8 +76,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WebDriverSeleniumHQTest.commonSearchTermResultNotEmpty" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="Selenium-practical-tasks" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="WebDriverSeleniumHQTest" />
+      <option name="METHOD_NAME" value="commonSearchTermResultNotEmpty" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.WebDriverSeleniumHQTest.commonSearchTermResultNotEmpty" />
         <item itemvalue="TestNG.WebDriverSeleniumHQTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.GoogleTest" />

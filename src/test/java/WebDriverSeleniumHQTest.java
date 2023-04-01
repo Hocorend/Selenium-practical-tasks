@@ -8,16 +8,28 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.List;
 
 public class WebDriverSeleniumHQTest {
-    @Test
-    public void commonSearchTermResultNotEmpty() throws InterruptedException {
+    private WebDriver driver;
 
-        WebDriver driver = new ChromeDriver();
+    @BeforeMethod(alwaysRun = true)
+    public void browserSetup(){
+        driver = new ChromeDriver();
+    }
+    @AfterMethod(alwaysRun = true)
+    public void browserClosed(){
+        driver.quit();
+        driver = null;
+    }
+
+    @Test(description = "Link for test")
+    public void commonSearchTermResultNotEmpty() throws InterruptedException {
         driver.get("https://google.com");
 
         waitForElementLocatedBy(driver,Duration.ofSeconds(10),By.xpath("//input[@title='Поиск']")).sendKeys("Авиационные реактивные двигатели");;
@@ -32,10 +44,7 @@ public class WebDriverSeleniumHQTest {
 
         List<WebElement> searchResults = driver.findElements(By.xpath("//span[*[text()='двигатель']]"));
 
-        driver.quit();
-
         Assert.assertTrue(searchResults.size()>0, "The search yielded no results");
-
 
     }
 

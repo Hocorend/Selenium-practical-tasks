@@ -3,15 +3,19 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.List;
 
-public class TestGoogle {
-
-    public void testChrome() throws InterruptedException {
+public class WebDriverSeleniumHQTest {
+    @Test
+    public void commonSearchTermResultNotEmpty() throws InterruptedException {
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://google.com");
@@ -26,9 +30,12 @@ public class TestGoogle {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@value ='Поиск в Google' and @role='button']"))).submit();
         //waitForElementLocatedBy(driver,Duration.ofSeconds(10),By.xpath("//input[@value ='Поиск в Google' and @role='button']")).submit();
 
-        Thread.sleep(5000);
+        List<WebElement> searchResults = driver.findElements(By.xpath("//span[*[text()='двигатель']]"));
 
         driver.quit();
+
+        Assert.assertTrue(searchResults.size()>0, "The search yielded no results");
+
 
     }
 

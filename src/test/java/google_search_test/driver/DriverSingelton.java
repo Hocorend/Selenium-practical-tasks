@@ -3,6 +3,7 @@ package google_search_test.driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
@@ -19,7 +20,7 @@ public class DriverSingelton {
                 }
                 case "edge": {
                     System.setProperty("webdriver.edge.driver","C:\\JavaTool\\msedgedriver.exe");
-                    driver = new EdgeDriver();
+                    driver = new EdgeDriver(new EdgeOptions().addArguments("--no-sandbox").addArguments("--disable-dev-shm-usage"));
                     break;
                 }
                 default:{

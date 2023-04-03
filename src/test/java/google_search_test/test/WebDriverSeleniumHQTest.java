@@ -1,5 +1,6 @@
 package google_search_test.test;
 
+import google_search_test.driver.DriverSingelton;
 import google_search_test.page.SeleniumHQHomeTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -23,12 +24,11 @@ public class WebDriverSeleniumHQTest {
 
     @BeforeMethod(alwaysRun = true)
     public void browserSetup(){
-        driver = new ChromeDriver();
+        driver = DriverSingelton.getDriver();
     }
     @AfterMethod(alwaysRun = true)
     public void browserClosed(){
-        driver.quit();
-        driver = null;
+        DriverSingelton.closeDriver();
     }
 
     @Test(description = "Link for test")

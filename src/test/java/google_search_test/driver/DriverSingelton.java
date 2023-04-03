@@ -20,7 +20,7 @@ public class DriverSingelton {
                 }
                 case "edge": {
                     System.setProperty("webdriver.edge.driver","C:\\JavaTool\\msedgedriver.exe");
-                    driver = new EdgeDriver(new EdgeOptions().addArguments("--no-sandbox").addArguments("--disable-dev-shm-usage"));
+                    driver = new EdgeDriver(new EdgeOptions().addArguments("--no-sandbox").addArguments("--disable-dev-shm-usage").addArguments("--headless"));
                     break;
                 }
                 default:{

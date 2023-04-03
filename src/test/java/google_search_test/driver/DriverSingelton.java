@@ -1,5 +1,6 @@
 package google_search_test.driver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -15,25 +16,23 @@ public class DriverSingelton {
         if(driver == null){
             switch (System.getProperty("browser")){
                 case "firefox":{
+                    WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver(new FirefoxOptions().setBinary("C:\\Program Files\\Mozilla Firefox\\firefox.exe"));
                     break;
                 }
                 case "edge": {
-                    System.setProperty("webdriver.edge.driver","C:\\JavaTool\\msedgedriver.exe");
+                    WebDriverManager.edgedriver().setup();
                     EdgeOptions options = new EdgeOptions();
                     options.addArguments("--no-sandbox"); // Bypass OS security model, MUST BE THE VERY FIRST OPTION
-                    options.addArguments("--headless");
-                    options.setExperimentalOption("useAutomationExtension", false);
                     options.addArguments("start-maximized"); // open Browser in maximized mode
                     options.addArguments("disable-infobars"); // disabling infobars
                     options.addArguments("--disable-extensions"); // disabling extensions
-                    options.addArguments("--disable-gpu"); // applicable to windows os only
                     options.addArguments("--disable-dev-shm-usage");
                     driver = new EdgeDriver(options);
                     break;
                 }
                 default:{
-                    System.setProperty("webdriver.chrome.driver","C:\\JavaTool\\chromedriver.exe");
+                    WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
                 }
             }

@@ -20,7 +20,16 @@ public class DriverSingelton {
                 }
                 case "edge": {
                     System.setProperty("webdriver.edge.driver","C:\\JavaTool\\msedgedriver.exe");
-                    driver = new EdgeDriver(new EdgeOptions().addArguments("--no-sandbox").addArguments("--disable-dev-shm-usage").addArguments("--headless"));
+                    EdgeOptions options = new EdgeOptions();
+                    options.addArguments("--no-sandbox"); // Bypass OS security model, MUST BE THE VERY FIRST OPTION
+                    options.addArguments("--headless");
+                    options.setExperimentalOption("useAutomationExtension", false);
+                    options.addArguments("start-maximized"); // open Browser in maximized mode
+                    options.addArguments("disable-infobars"); // disabling infobars
+                    options.addArguments("--disable-extensions"); // disabling extensions
+                    options.addArguments("--disable-gpu"); // applicable to windows os only
+                    options.addArguments("--disable-dev-shm-usage");
+                    driver = new EdgeDriver(options);
                     break;
                 }
                 default:{
